@@ -29,7 +29,8 @@ class TelaHomeWidget(GridLayout):
         bnt1 = self.constroi_botao("Circuito Simples")
         bnt2 = self.constroi_botao("Circuito Duplo")
         bnt3 = self.constroi_botao("Histórico", "Historico")
-        bnt4 = self.constroi_botao("Sair")
+        bnt4 = self.constroi_botao("Sobre")
+        bnt5 = self.constroi_botao("Sair")
 
         padding = [f"{i}sp" for i in [150, 15, 150, 15]]
         spacing = "10sp"
@@ -39,6 +40,7 @@ class TelaHomeWidget(GridLayout):
         grid.add_widget(bnt2)
         grid.add_widget(bnt3)
         grid.add_widget(bnt4)
+        grid.add_widget(bnt5)
         self.add_widget(grid)
 
         check = CheckBox(active=1)

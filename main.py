@@ -1,4 +1,4 @@
-# /usr/bin/python  bic calt
+#bash /usr/bin/python3
 
 import kivy
 
@@ -24,6 +24,8 @@ try:
     from .dados import Dados, NOMES_CONSTANTES
     #from .calculos import Calculos
     import unidades
+    from .tela_sobre import TelaSobreWidget
+
 except:
     from gera_relatorio import GeraRelatorioWidget
     from logpopup import LogPopup, PopButton
@@ -33,6 +35,7 @@ except:
     from calculos import Calculos
     from dados import Dados, NOMES_CONSTANTES
     import unidades
+    from tela_sobre import TelaSobreWidget
 
 from functools import wraps
 
@@ -123,6 +126,7 @@ class ProjetoApp(App):
 
         self.constroi_tela_inserir_constantes("simples")
         self.constroi_tela_inserir_constantes("duplo")
+        self.constroi_tela_sobre()
 
         # self.constroi_tela_historico()
 
@@ -131,6 +135,11 @@ class ProjetoApp(App):
         # self.manager.current = "circuito_simples"
 
         return self.manager
+
+    def vai_para_tela(self, nome:str):
+        def dentro(*args):
+            self.manager.current = nome
+        return dentro
 
     def button_circuito_botao_ok(self, tipo: str):
 
@@ -248,6 +257,7 @@ class ProjetoApp(App):
         self.manager.ids["home_circuito_simples"].bind(on_release=self.button_home_circuito_simples)
         self.manager.ids["home_circuito_duplo"].bind(on_release=self.button_home_circuito_duplo)
         self.manager.ids["home_historico"].bind(on_release=self.button_home_historico)
+        self.manager.ids["home_sobre"].bind(on_release=self.vai_para_tela("sobre"))
         self.manager.ids["home_sair"].bind(on_release=self.button_home_sair)
 
     def constroi_tela_historico(self):
@@ -331,6 +341,24 @@ class ProjetoApp(App):
         self.manager.ids[f"{nome_tela}_botao_ok"].bind(on_release=self.button_inserir_distancias_botao_ok)
 
         # self.manager.current = nome_tela
+
+    def constroi_tela_sobre(self):
+        nome_tela = "sobre"
+        screen = Screen(name=nome_tela)
+        dados = [
+            ["Programa desenvolvido pelos estudantes",],
+            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
+            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
+            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
+            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
+            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
+            ["Kayo Nascimento", "email.kayo@mail.com"],
+            ["Shamella Castro", "email.shamella@mail.com"]
+        ]
+        tela = TelaSobreWidget(titulo="Sobre os Desenvolvedores", dados=dados)
+        tela.ids["sobre_botao_voltar"].bind(on_release=self.vai_para_tela("home"))
+        screen.add_widget(tela)
+        self.manager.add_widget(screen)
 
     def constroi_tela_gera_relatorio(self):
         # print("Aqui serão gerados os relatórios")
