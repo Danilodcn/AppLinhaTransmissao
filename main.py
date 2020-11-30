@@ -348,12 +348,8 @@ class ProjetoApp(App):
         dados = [
             ["Programa desenvolvido pelos estudantes",],
             ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
-            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
-            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
-            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
-            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
-            ["Kayo Nascimento", "email.kayo@mail.com"],
-            ["Shamella Castro", "email.shamella@mail.com"]
+            ["Kaio Nascimento", "kcesar1905@gmail.com"],
+            ["Shamella Castro", "shamella.castro@uft.edu.br"]
         ]
         tela = TelaSobreWidget(titulo="Sobre os Desenvolvedores", dados=dados)
         tela.ids["sobre_botao_voltar"].bind(on_release=self.vai_para_tela("home"))
@@ -585,7 +581,7 @@ if __name__ == "__main__":
 
     from kivy.core.window import Window
 
-    Window.size = (largura, altura)
+    #Window.size = (largura, altura)
 
     Window.clearcolor = get_color_from_hex("4C6B8A")
     Window.clearcolor = get_color_from_hex("1ABC9C")

@@ -13,7 +13,6 @@ from kivy.properties import StringProperty
 from kivy.utils import get_color_from_hex
 from kivy.metrics import sp
 
-import random
 from string import ascii_letters
 
 class OkButton(Button):
@@ -73,7 +72,6 @@ class TelaInserirWidget(GridLayout):
 
             if nome == "CONDUTORES_SIMETRICOS":
                 check = CheckBox(active=0)
-                check.active = random.getrandbits(1)
                 check.size_hint = (2, 2)
                 grid.add_widget(label)
                 grid.add_widget(check)
@@ -82,13 +80,10 @@ class TelaInserirWidget(GridLayout):
 
             inp = TextInput(size_hint_y=None, height=self.height*.06, border=[4] * 4, font_size=self.fonte_padrao)
             filtro = "float"
-            inp.text = "{}".format(round(random.uniform(10, 60), 3))
             if nome == "NOME":
                 filtro = None
-                inp.text = "".join([random.choice(ascii_letters) for i in range(random.randint(3, 10))]).title()
             elif nome == "NUMERO_CONDUTORES":
                 filtro = "int"
-                inp.text = "{}".format(random.randint(1, 20))
 
             #inp.input_filter = filtro
             inp.write_tab = False

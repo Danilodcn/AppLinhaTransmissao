@@ -1,6 +1,5 @@
 import sqlite3
 import os
-import numpy as np
 
 CONSTANTES_SIMPLES = ['TIPO',
                       'NOME',

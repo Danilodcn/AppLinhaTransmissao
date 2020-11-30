@@ -14,9 +14,6 @@ class TelaHomeWidget(GridLayout):
 
     titulo = "Calculo dos Parâmetros da Linha de Transmissão"
 
-    descricao = "Este programa foi uma continuidade do trabalho do Kayo Nascimento \n\n" \
-                "[size=23sp]Desenvolvedores: \nDanilo Nascimento\nKayo Nascimento\nShâmella Castro[/size]"
-
     def __init__(self, size, **kwargs):
         #assert isinstance(size, tuple)
         super(TelaHomeWidget, self).__init__(**kwargs)
@@ -58,17 +55,10 @@ class TelaHomeWidget(GridLayout):
         self.add_widget(label)
 
     def constroi_descricao(self):
-        grid = GridLayout(cols=2, padding='10sp', spacing="20sp", size_hint_y = 2)
-        label = Label(text=self.descricao)
-        #label.size_hint_y = None
-        label.height = self.size[1] * .6
-        label.font_size = self.fonte_padrao
-        label.text_size = (self.width * .4, label.height * 1)
-        label.valign = "center"
-        label.halign = "center"
+        grid = GridLayout(cols=1, padding='10sp', spacing="20sp", size_hint_y = 2)
+        
         imagem = Image(source="./imagens/torre.jpg")
 
-        grid.add_widget(label)
         grid.add_widget(imagem)
         self.add_widget(grid)
 

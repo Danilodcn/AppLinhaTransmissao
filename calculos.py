@@ -1,4 +1,3 @@
-import numpy as np
 from collections import namedtuple
 from math import log, pi as PI, sqrt, hypot
 
@@ -120,7 +119,6 @@ class Calculos(object):
         alturas = list(self.get_alturas().values())
         for i, h in enumerate(alturas):
             alturas[i] = 2 * h
-        print(alturas, alturas_para_imagens)
 
         distancia_entre_as_fases = self.get_distancias().values()
         DMG = media_geometrica(*distancia_entre_as_fases)
@@ -132,7 +130,6 @@ class Calculos(object):
 
         if efeito_solo:
             k = media_geometrica(*alturas) / media_geometrica(*alturas_para_imagens)
-            print("K = ", k)
             C = 2 * PI * self.permissividade / log(DMG / Ds * k)
 
         else:
