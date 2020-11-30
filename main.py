@@ -347,7 +347,7 @@ class ProjetoApp(App):
         screen = Screen(name=nome_tela)
         dados = [
             ["Programa desenvolvido pelos estudantes",],
-            ["Danilo C Nascimento", "danilo.nascimento@uft.edu.br"],
+            ["Danilo C Nascimento", "daconnas.dcn@gmail.com"],
             ["Kaio Nascimento", "kcesar1905@gmail.com"],
             ["Shamella Castro", "shamella.castro@uft.edu.br"]
         ]
